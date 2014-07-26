@@ -3,6 +3,14 @@
   "description": "inline scripts, styles, and images. then minify",
   "version": "0.1.0",
   "author": "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)",
+  "keywords": [
+    "html", "pack", "minify"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EvanHahn/node-html-pack.git"
+  },
+  "bugs": "https://github.com/EvanHahn/node-html-pack/issues",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
