@@ -35,8 +35,6 @@ describe "html packer", ->
   it "has the new elements, removing old ones", ->
     expect($("link")).to.have.length 0
     expect($("style")).to.have.length 1
-    expect($("img")).to.have.length 1
-    expect($("img").attr("alt")).to.equal "men with donkey"
     expect($("script")).to.have.length 2
 
 ###
