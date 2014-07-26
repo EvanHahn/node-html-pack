@@ -34,3 +34,5 @@ pack(path.resolve(__dirname, "index.html"), function(err, html) {
   console.log(html);
 });
 ```
+
+Not incredibly robust, so pull requests are welcome!
