@@ -9,17 +9,13 @@ describe "html packer", ->
   result = null
   $ = null
 
-  beforeEach (done) ->
+  before (done) ->
     file = path.resolve(__dirname, "testpage/index.html")
     pack file, (err, response) ->
       return done(err) if err
       result = response
       $ = cheerio.load result
       done()
-
-  afterEach ->
-    result = null
-    $ = null
 
   it "keeps the doctype", ->
     expect(result).to.match /^<!doctype html>/i
