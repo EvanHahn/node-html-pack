@@ -37,26 +37,25 @@ describe "html packer", ->
     expect($("style")).to.have.length 1
     expect($("script")).to.have.length 2
 
-###
-<!DOCTYPE html>
-<html>
+  it "minifies the styles", ->
+    expected = """
+      html{font-family:sans-serif}
+      body{background-color:#903}
+      .something{font-weight:700}
+      """.replace(/\s/g, "")
+    expect($("style").html()).to.equal expected
 
-<head>
-  <meta charset="utf-8">
-  <title>test file</title>
-  <link rel="stylesheet" href="one.css">
-  <link rel="stylesheet" href="inner/two.css">
-</head>
+  it "minifies the first script", ->
+    expected = '!function(){var o="hello";console.log(o)}();'
+    expect($("script").first().html()).to.equal expected
 
-<body>
-
-  check out this sweet photo
-
-  <img src="men_with_donkey.jpg" alt="men with donkey">
-
-  <script src="one.js"></script>
-  <script src="inner/two.js"></script>
-
-</body>
-</html>
-###
+  it "minifies the second scripts", ->
+    expected = '!function(){var o="hello";console.log(o)}();'
+    expected = """
+      console.log("woah!");
+      function aSweetFrigginFunction(){
+      console.log("this function is SWEET")}
+      function anotherSweetFrigginFunction(){
+      console.log("Wow, this function is sweet too")}
+      """.replace(/\n/g, "")
+    expect($("script").last().html()).to.equal expected
